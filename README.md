@@ -1,6 +1,8 @@
 # pytorch-on-jetson
 Build scripts for building PyTorch 2.7 using CUDA 12.2 on Xavier AGX with support for Python 3.13
 
+You see you can get hold of the previous generation Jetson Xavier AGX hardware on the cheap. But can you do anything with this? Well, yes you can. Unfortunately, the documentation is not that great - and seems to be spread across multiple sites. So this project seeks to consolidate all of this into one place. 
+
 ## Step 1
 Install the full Jetpack 5.1.5 (the last available for the Jetson Xavier AGX) which ships with CUDA 11.4
 

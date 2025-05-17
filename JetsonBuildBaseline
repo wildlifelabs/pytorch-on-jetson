@@ -1,0 +1,51 @@
+FROM nvcr.io/nvidia/l4t-jetpack:r35.4.1
+#
+# Setup environment variables
+#
+ENV CUDA_HOME="/usr/local/cuda"
+ENV PATH="/usr/local/cuda/bin:${PATH}"
+ENV LD_LIBRARY_PATH=
+ENV PATH="/usr/local/cuda-12.2/bin:$PATH"
+ENV LD_LIBRARY_PATH="/usr/local/cuda-12.2/compat"
+ENV CUDACXX="/usr/local/cuda-12.2/bin/nvcc"
+ENV CUDA_HOME="/usr/local/cuda-12.2"
+
+# This specific version matches Jetson Xavier latest spec
+# https://catalog.ngc.nvidia.com/orgs/nvidia/containers/l4t-jetpack
+# FROM nvcr.io/nvidia/l4t-jetpack:r35.6.1
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+ENV CPATH=/usr/local/cuda/include
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Sydney/Australia
+
+# Etc/UTC
+RUN apt-get update > /dev/null
+RUN apt-get install -yqq --fix-missing --reinstall ca-certificates
+RUN apt-get install -yqq --fix-missing software-properties-common
+RUN apt-get -yqq upgrade
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get update > /dev/null
+RUN apt-get install -yqq --fix-missing python3.13 libpython3.13-dev python3.13-dev # python3.8-distutils
+RUN apt-get install -yqq --fix-missing git wget curl bzip2 openssl build-essential libpq-dev xorg libxi6 libxfixes3 libxcursor1 libxdamage1 libxext6 libxfont2
+RUN apt-get install -yqq --fix-missing libhdf5-serial-dev
+RUN apt-get install -yqq --fix-missing libopenblas-dev 
+RUN apt-get install -yqq --fix-missing libnuma-dev libnuma1
+RUN apt-get install -yqq --fix-missing libpng-dev zlib1g-dev
+RUN apt-get install -yqq --fix-missing gfortran
+RUN apt-get autoremove -y
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.13 1
+RUN update-alternatives --set python /usr/bin/python3.13
+RUN mkdir /work
+WORKDIR /work
+RUN wget -q -O- https://packagecloud.io/dcommander/libjpeg-turbo/gpgkey | gpg --dearmor >/etc/apt/trusted.gpg.d/libjpeg-turbo.gpg
+RUN wget -q -O- https://raw.githubusercontent.com/libjpeg-turbo/repo/main/libjpeg-turbo.list >/etc/apt/sources.list.d/libjpeg-turbo.list
+RUN apt-get update
+RUN apt-get install -yqq --fix-missing libjpeg-turbo-official
+
+RUN ldconfig
+COPY ./deviceQuery/deviceQuery /work
+RUN wget https://bootstrap.pypa.io/get-pip.py
+RUN python /work/get-pip.py
+RUN python -m pip install --upgrade pip
+COPY ./check_cuda.py /work
+

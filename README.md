@@ -28,15 +28,15 @@ run `checkout_pytorch.sh` to check out PyTorch and TorchVision code and all subm
 run `build_magma.sh` to build the Magma dependency
 
 ## Step 7
-run `build_pytorch.sh` to finally build Pytorch and Torchvision. This process will saturate all eight cores of your Jetson for about 11 hours. You should ensure you have set the power profile to `MAXN` and are using a proper cooling solution.
+run `build_pytorch.sh` to finally build Pytorch and `build_vision.sh` to build Torchvision. This process will saturate all eight cores of your Jetson for about 11 hours. You should ensure you have set the power profile to `MAXN` and are using a proper cooling solution.
 
 ## Step 8
-You can now use `test_pytorch.sh` to test the local build worked as expected. It will create a new venv, install the newly built wheels and test they work.
+Optionally, you can now install the `whl` files from the `dist` directory into the `venv` and use `test_cuda.sh` and `test_pytorch.sh` to test the local build worked as expected. It will test using the existing venv. Better to test using the docker version.
 
 ## Step 9
-Use `build_pytorch_docker.sh` to build the docker container with all the dependencies PyTorch and TorchVision require - as well as Python 3.13
+Use `build_docker.sh` to build the docker container with all the dependencies PyTorch and TorchVision require - as well as Python 3.13
 
 ## Step 10
-Ok, now for the magic - use `test_pytorch_docker.sh` to test CUDA, PyTorch and TorchVision on the container. You need to pay very close attention to the command-line parameters being used to run Docker for your own project. ALL of these parameters are essential for CUDA to work correctly, especially mapping the LOCAL CUDA INSTALL into the container since we need the compatability layer to be surfaced in the container. 
+Ok, now for the magic - use `test_cuda_docker.sh` and `test_pytorch_docker.sh` to test CUDA, PyTorch and TorchVision on the container. You need to pay very close attention to the command-line parameters being used to run Docker for your own project. ALL of these parameters are essential for CUDA to work correctly, especially mapping the LOCAL CUDA INSTALL into the container since we need the compatability layer to be surfaced in the container. 
 
 

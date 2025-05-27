@@ -40,5 +40,5 @@ sudo apt-get install libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
 cp -r /usr/local/cuda-11.4/samples/1_Utilities/deviceQuery ./
 cd deviceQuery
 make
-
+cd ..
 sudo ldconfig

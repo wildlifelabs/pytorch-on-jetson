@@ -47,5 +47,11 @@ COPY ./deviceQuery/deviceQuery /work
 RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python /work/get-pip.py
 RUN python -m pip install --upgrade pip
+COPY ./pytorch/dist/torch-2.7.0a0+git1341794-cp313-cp313-linux_aarch64.whl /work
+COPY ./vision/dist/torchvision-0.22.0+9eb57cd-cp313-cp313-linux_aarch64.whl /work
 COPY ./check_cuda.py /work
+RUN python -m pip install numpy==2.2.5
+RUN python -m pip install /work/torch-2.7.0a0+git1341794-cp313-cp313-linux_aarch64.whl
+RUN python -m pip install /work/torchvision-0.22.0+9eb57cd-cp313-cp313-linux_aarch64.whl
+
 

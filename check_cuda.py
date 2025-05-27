@@ -1,6 +1,6 @@
 import torch
 import os
-# import torchvision
+import torchvision
 # from PIL import __version__, features
 
 
@@ -8,7 +8,7 @@ import os
 # os.environ["CUDA_HOME"]="/usr/local/cuda-12.2"
 
 print(f"PyTorch version: {torch.__version__}")
-# print(f"Torchvision version: {torchvision.__version__}")
+print(f"Torchvision version: {torchvision.__version__}")
 print(f"CUDA available: {torch.cuda.is_available()}")
 print(f"CUDA version: {torch.version.cuda}")
 # print(f"PIL version: {__version__}")

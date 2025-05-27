@@ -21,6 +21,7 @@ export CUDACXX="/usr/local/cuda-12.2/bin/nvcc"
 export CUDA_HOME="/usr/local/cuda-12.2"
 
 
-cd pytorch
-source ../venv/bin/activate;python setup.py --cmake bdist_wheel
+cd vision
+source ../venv/bin/activate;python setup.py bdist_wheel
+
 

@@ -13,7 +13,7 @@ export USE_CUDNN=1
 export USE_CUFILE=0
 export NB_COMPILE_JOBS=8
 export _GLIBCXX_USE_CXX11_ABI=1
-export USE_DISTRIBUTED=0
+export USE_DISTRIBUTED=1
 
 export PATH="/usr/local/cuda-12.2/bin:$PATH"
 export LD_LIBRARY_PATH="/usr/local/cuda-12.2/compat"

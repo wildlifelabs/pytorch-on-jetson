@@ -36,7 +36,8 @@ I found that while deviceQuery says it has 12.2 drivers and 11.4 runtime, when P
 * complete installation and reboot
 
 ## Step 5
-run `checkout_pytorch.sh` to check out PyTorch and TorchVision code and all submodules
+* run `checkout_pytorch.sh` to check out PyTorch and TorchVision code and all submodules
+* run `install_pytorch_dependencies.sh` to then install all of the python libraries required to build
 
 ## Step 6
 run `build_magma.sh` to build the Magma dependency

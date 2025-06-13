@@ -17,6 +17,7 @@ Also consider installing jtop:
 ## Step 2
 You need to update the subsystem for CUDA on the Jetson. 
 * run `install_cuda.sh` which configures and download CUDA 12.2 and also configures Jetson compatability support 
+* complete installation and reboot
  
 You can read the following background documentation/download link:
 * https://docs.nvidia.com/cuda/cuda-for-tegra-appnote/index.html#upgradable-package-for-jetson
@@ -27,10 +28,12 @@ You should be able to use `test_cuda.sh` once you complete *step 4* to check the
 I found that while deviceQuery says it has 12.2 drivers and 11.4 runtime, when PyTorch goes to use CUDA, it's 12.2 all the way. Don't panic.
 
 ## Step 3
-update the Python 3 version using the embedded Conda environment by running `conda install python=3.13`
+* run `install_python.sh` to update the Python 3 version using Miniconda environment by running.
+* complete installation and restart your shell (or reboot) 
 
 ## Step 4
-run `install_dependencies.sh` which adds all the required libraries to build PyTorch 2.7 that the Jetson can support.
+* run `install_dependencies.sh` which adds all the required libraries to build PyTorch 2.7 that the Jetson can support.
+* complete installation and reboot
 
 ## Step 5
 run `checkout_pytorch.sh` to check out PyTorch and TorchVision code and all submodules

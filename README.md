@@ -32,7 +32,7 @@ I found that while deviceQuery says it has 12.2 drivers and 11.4 runtime, when P
 * complete installation and restart your shell (or reboot) 
 
 ## Step 4
-* run `install_dependencies.sh` which adds all the required libraries to build PyTorch 2.7 that the Jetson can support.
+* run `sudo install_dependencies.sh` which adds all the required libraries to build PyTorch 2.7 that the Jetson can support.
 * complete installation and reboot
 
 ## Step 5

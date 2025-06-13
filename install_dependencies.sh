@@ -6,7 +6,7 @@ sudo apt install -y --fix-missing --reinstall ca-certificates
 sudo apt install -y --fix-missing software-properties-common
 sudo apt install -y --fix-missing libjpeg-turbo-official
 sudo apt install -y --fix-missing libatlas-base-dev
-sudo apt install -y --fix-missinf nvidia-opencv-dev
+sudo apt install -y --fix-missing nvidia-opencv-dev
 sudo apt install -y --fix-missing libhdf5-serial-dev
 sudo apt install -y --fix-missing libopenblas-dev 
 sudo apt install -y --fix-missing libnuma-dev libnuma1

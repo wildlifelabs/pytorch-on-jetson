@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ "$EUID" != 0 ]; then
+    echo "Script must be run as root."
+    exit 1
+fi
 sudo wget -q -O- https://packagecloud.io/dcommander/libjpeg-turbo/gpgkey | sudo gpg --dearmor >/etc/apt/trusted.gpg.d/libjpeg-turbo.gpg
 sudo wget -q -O- https://raw.githubusercontent.com/libjpeg-turbo/repo/main/libjpeg-turbo.list >/etc/apt/sources.list.d/libjpeg-turbo.list
 sudo apt update

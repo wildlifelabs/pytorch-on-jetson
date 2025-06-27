@@ -35,10 +35,5 @@ sudo apt install -y --fix-missing libprotobuf-dev protobuf-compiler
 sudo apt install -y --fix-missing libgoogle-glog-dev libgflags-dev
 sudo apt install -y --fix-missing libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
 
-# assume we have an environment with Jetpack 5 already installed so this works
-cp -r /usr/local/cuda-11.4/samples/1_Utilities/deviceQuery ./
-cd deviceQuery
-make
-cd ..
 sudo ldconfig
 

@@ -35,6 +35,7 @@ sudo apt install -y --fix-missing libprotobuf-dev protobuf-compiler
 sudo apt install -y --fix-missing libgoogle-glog-dev libgflags-dev
 sudo apt install -y --fix-missing libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
 sudo apt install -y --fix-missing curl wget
-
+sudo apt install -y --fix-missing nvidia-jetpack
 sudo ldconfig
+echo "You should reboot now"
 

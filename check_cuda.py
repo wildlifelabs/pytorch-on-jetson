@@ -4,9 +4,6 @@ import torchvision
 # from PIL import __version__, features
 
 
-# os.environ["LD_LIBRARY_PATH"]="/usr/local/cuda-12.2/targets/aarch64-linux/lib"
-# os.environ["CUDA_HOME"]="/usr/local/cuda-12.2"
-
 print(f"PyTorch version: {torch.__version__}")
 print(f"Torchvision version: {torchvision.__version__}")
 print(f"CUDA available: {torch.cuda.is_available()}")

@@ -12,7 +12,7 @@ sudo apt install -y --fix-missing libjpeg-turbo-official
 sudo apt install -y --fix-missing libatlas-base-dev
 sudo apt install -y --fix-missing nvidia-opencv-dev
 sudo apt install -y --fix-missing libhdf5-serial-dev
-sudo apt install -y --fix-missing libopenblas-dev 
+sudo apt install -y --fix-missing libopenblas-base libopenmpi-dev libomp-dev libopenblas-dev
 sudo apt install -y --fix-missing libnuma-dev libnuma1
 sudo apt install -y --fix-missing libpng-dev zlib1g-dev
 sudo apt install -y --fix-missing gfortran
@@ -37,5 +37,6 @@ sudo apt install -y --fix-missing libgphoto2-dev libeigen3-dev libhdf5-dev doxyg
 sudo apt install -y --fix-missing curl wget
 sudo apt install -y --fix-missing nvidia-jetpack
 sudo ldconfig
+sudo usermod -aG docker $USER
 echo "You should reboot now"
 
